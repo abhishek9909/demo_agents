@@ -19,6 +19,12 @@ namespace DemoConsole.Agents
             // Retrieve the chat completion service.
             var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
 
+            // Function execution settings.
+            OpenAIPromptExecutionSettings openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings()
+            {
+                ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
+            };
+
             // Create tha chat history.
             ChatHistory chatMessages = new ChatHistory("You are a friendly assistant who likes to follow the rules. You will complete required steps\r and request approval before taking any consequential actions. If the user doesn't provide\r enough information for you to complete a task, you will keep asking questions until you have\r enough information to complete the task.");
             
@@ -30,6 +36,7 @@ namespace DemoConsole.Agents
 
                 var result = chatCompletionService.GetStreamingChatMessageContentsAsync(
                     chatMessages,
+                    executionSettings: openAIPromptExecutionSettings,
                     kernel: kernel);
 
                 // Stream the results
