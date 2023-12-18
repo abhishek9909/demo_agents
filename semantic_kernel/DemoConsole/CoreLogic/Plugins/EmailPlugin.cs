@@ -12,5 +12,13 @@ namespace CoreLogic.Plugins
             // Logic to trigger emails.
             Console.WriteLine("Email sent");
         }
+
+        [KernelFunction]
+        [Description("Adds attachments in an email")]
+        public async Task AddAttachment(Kernel kernel, [Description("Names of the files that the sender wants to send to the recipient")] string fileNames)
+        {
+            // Logic to add attachments.
+            Console.WriteLine("Attachments added");
+        }
     }
 }
