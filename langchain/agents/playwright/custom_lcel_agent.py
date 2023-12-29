@@ -6,10 +6,10 @@ from langchain.memory import ConversationBufferMemory
 from langchain.prompts import MessagesPlaceholder
 
 llm = AzureChatOpenAI( 
-    openai_api_key="6f3ab983d07d4599abe7a52266fbe141",
-    azure_endpoint="https://gcs-jobrec-openai-ncus-ppe.openai.azure.com", 
-    deployment_name="gpt-35-turbo-16k", 
-    openai_api_version="2023-09-01-preview", 
+    openai_api_key="<<open-ai-key>>",
+    azure_endpoint="<<azure-endpoint>>", 
+    deployment_name="<<azure-deployment-name>>", 
+    openai_api_version="<<api-version>>", 
     openai_api_type="azure"
 )
 
